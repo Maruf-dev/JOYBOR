@@ -26,38 +26,9 @@ const Hero = ({ address, phone, email }) => {
             Real Estate
           </button>
           <h1 className="font-normal text-7xl text-center mt-24 text-white capitalize">
-            find real estate
-            <br /> that suits you
+            Joyborda -
+            <br /> joy bor!
           </h1>
-          {/* Icons and Text under Heading */}
-          <div className="hidden sm:flex mt-24 justify-center items-center">
-            <div className="flex mr-11 ">
-              <Image
-                src={arrowIcon}
-                alt="arrow icon"
-                className="w-5 h-5 mx-9 self-center"
-              />
-              <p className="text-white text-xl py-2 ">{address}</p>
-            </div>
-
-            <div className="flex ml-20 mr-20">
-              <Image
-                src={phoneIcon}
-                alt="phone icon"
-                className="w-5 h-5 mx-9 self-center"
-              />
-              <p className="text-white text-xl py-2">{phone}</p>
-            </div>
-
-            <div className="flex ml-20">
-              <Image
-                src={mailIcon}
-                alt="mail icon"
-                className="w-5 h-5 mx-9 self-center"
-              />
-              <p className="text-white text-xl py-2">{email}</p>
-            </div>
-          </div>
           {/* Show more button  */}
           <div className="  absolute bottom-8 w-full text-center ">
             <button
