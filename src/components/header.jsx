@@ -21,19 +21,21 @@ export default function Header() {
   const [header, setHeader] = useState(false)
   const [headerColor, setHeaderColor] = useState("transparent")
   const [headerText, setHeaderText] = useState("white")
-  const [selectedRegion, setSelectedRegion] = useState("Москва и МО")
+  const [selectedRegion, setSelectedRegion] = useState("Toshkent sh")
   const [isOpen, setIsOpen] = useState(false)
 
   const regions = [
-    "Москва и МО",
-    "Санкт-Петербург и ЛО",
-    "Воронеж",
-    "Екатеринбург",
-    "Казань",
-    "Краснодар",
-    "Красноярск",
-    "Нижний Новгород",
-    "Новосибирск"
+    "Toshkent sh",
+    "Buxoro",
+    "Samarqand",
+    "Navoi",
+    "Jizzax",
+    "Sirdaryo",
+    "Xorazm",
+    "Qoraqalpog'iston",
+    "Andijon",
+    "Farg'ona",
+    "Namangan"
   ]
 
   const handleHeader = () => {
@@ -46,7 +48,6 @@ export default function Header() {
 
   const handleRegionSelect = (region) => {
     setSelectedRegion(region)
-    // We don't close the dropdown here
   }
 
   const toggleDropdown = () => {
@@ -88,7 +89,7 @@ export default function Header() {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium ml-4"
                 style={{ color: `${headerText}` }}
                 onClick={toggleDropdown}
               >
@@ -96,16 +97,30 @@ export default function Header() {
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 max-h-[400px] overflow-y-auto">
-              <div className="flex justify-end p-2">
-                <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+            <DropdownMenuContent
+              className="w-56 max-h-[400px] overflow-y-auto bg-white z-50"
+              style={{
+                position: 'relative',
+                zIndex: 9999,
+                backgroundColor: '#000000',
+                color: '#ffffff',
+                border: '1px solid rgba(255, 255, 255, 0.1)'
+              }}
+            >
+              <div className="flex justify-end p-2 border-b border-gray-800">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsOpen(false)}
+                  className="hover:bg-gray-800"
+                >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
               {regions.map((region) => (
                 <DropdownMenuItem
                   key={region}
-                  className="cursor-pointer flex justify-between items-center"
+                  className="cursor-pointer flex justify-between items-center hover:bg-gray-800 text-white"
                   onClick={() => handleRegionSelect(region)}
                 >
                   {region}
@@ -116,7 +131,7 @@ export default function Header() {
           </DropdownMenu>
         </div>
 
-        {/* Rest of your existing header code */}
+        {/* Rest of your existing header code remains the same */}
         <div className="hidden sm:flex">
           <Image src={searchIcon} alt="Menu" className="w-4 h-4 self-center" />
           <input
