@@ -26,6 +26,7 @@ export default function Header() {
 
   const regions = [
     "Toshkent sh",
+    "Toshkent v",
     "Buxoro",
     "Samarqand",
     "Navoi",
@@ -58,10 +59,10 @@ export default function Header() {
     const handleColorChange = () => {
       if (window.scrollY >= 250) {
         setHeaderColor("rgba(142, 45, 226, 0.7)")
-        setHeaderText("#ffffff")
+        setHeaderText("#1A3A5F")
       } else {
         setHeaderColor("rgba(255, 255, 255, 0.1)")
-        setHeaderText("#ffffff")
+        setHeaderText("#1A3A5F")
       }
     }
     window.addEventListener("scroll", handleColorChange)
@@ -132,16 +133,7 @@ export default function Header() {
         </div>
 
         {/* Rest of your existing header code remains the same */}
-        <div className="hidden sm:flex">
-          <Image src={searchIcon} alt="Menu" className="w-4 h-4 self-center" />
-          <input
-            type="text"
-            placeholder="Search"
-            maxLength={20}
-            className="w-40 bg-transparent outline-none placeholder-gray-300 mx-4 py-2 text-white capitalize"
-          />
-        </div>
-
+        
         <ul
           style={{ color: `${headerText}` }}
           className="text-sm font-medium hidden sm:flex"
