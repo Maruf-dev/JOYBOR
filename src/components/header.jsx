@@ -58,7 +58,7 @@ export default function Header() {
   useEffect(() => {
     const handleColorChange = () => {
       if (window.scrollY >= 250) {
-        setHeaderColor("rgba(142, 45, 226, 0.7)")
+        setHeaderColor("##b0bced")
         setHeaderText("#1A3A5F")
       } else {
         setHeaderColor("rgba(255, 255, 255, 0.1)")
@@ -133,28 +133,28 @@ export default function Header() {
         </div>
 
         {/* Rest of your existing header code remains the same */}
-        
+
         <ul
           style={{ color: `${headerText}` }}
           className="text-sm font-medium hidden sm:flex"
         >
-          <li className="p-4 hover:text-orange-500">
+          <li className="p-4 hover:text-[#4179A3]">
             <Link href="#about-container">About</Link>
           </li>
-          <li className="p-4 hover:text-orange-500">
+          <li className="p-4 hover:text-[#4179A3]">
             <Link href="#services">Services</Link>
           </li>
-          <li className="p-4 hover:text-orange-500">
+          <li className="p-4 hover:text-[#4179A3]">
             <Link href="#reviews">Reviews</Link>
           </li>
-          <li className="p-4 hover:text-orange-500">
+          <li className="p-4 hover:text-[#4179A3]">
             <Link href="#contact">Contact</Link>
           </li>
         </ul>
 
         <p
           style={{ color: `${headerText}` }}
-          className="hidden sm:flex text-sm font-light ml-10 mr-5 hover:text-orange-500 cursor-pointer"
+          className="hidden sm:flex text-sm font-light ml-10 mr-5 hover:text-[#4179A3] cursor-pointer"
         >
           Aloqa
         </p>
@@ -181,27 +181,27 @@ export default function Header() {
         }
       >
         <ul style={{ color: `${headerText}` }} className="text-sm font-bold">
-          <li className="mx-7 py-4 text-4xl hover:text-orange-500">
+          <li className="mx-7 py-4 text-4xl hover:text-[#4179A3]">
             <Link href="#about-container" onClick={handleMobileHeader}>
               About
             </Link>
           </li>
-          <li className="mx-7 py-4 text-4xl hover:text-orange-500">
+          <li className="mx-7 py-4 text-4xl hover:text-[#4179A3]">
             <Link href="#services" onClick={handleMobileHeader}>
               Services
             </Link>
           </li>
-          <li className="mx-7 py-4 text-4xl hover:text-orange-500">
+          <li className="mx-7 py-4 text-4xl hover:text-[#4179A3]">
             <Link href="#deals" onClick={handleMobileHeader}>
               Deals
             </Link>
           </li>
-          <li className="mx-7 py-4 text-4xl hover:text-orange-500">
+          <li className="mx-7 py-4 text-4xl hover:text-[#4179A3]">
             <Link href="#reviews" onClick={handleMobileHeader}>
               Reviews
             </Link>
           </li>
-          <li className="mx-7 py-4 text-4xl hover:text-orange-500">
+          <li className="mx-7 py-4 text-4xl hover:text-[#4179A3]">
             <Link href="#contact" onClick={handleMobileHeader}>
               Contact
             </Link>
