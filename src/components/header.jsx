@@ -4,7 +4,6 @@ import Image from "next/image"
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
 import { ChevronDown, X, Check } from 'lucide-react'
-import searchIcon from "../../src/assets/icons/search.png"
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 import ThemeChanger from "./themeChanger"
 
@@ -16,17 +15,19 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 export default function Header() {
   const [header, setHeader] = useState(false)
   const [headerColor, setHeaderColor] = useState("transparent")
   const [headerText, setHeaderText] = useState("white")
   const [selectedRegion, setSelectedRegion] = useState("Toshkent sh")
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState('')
 
   const regions = [
-    "Toshkent sh",
-    "Toshkent v",
+    "Toshkent shahri",
+    "Toshkent viloyati",
     "Buxoro",
     "Samarqand",
     "Navoi",
@@ -69,6 +70,8 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleColorChange)
   }, [])
 
+  console.log(search)
+
   return (
     <div
       style={{ background: `${headerColor}`, backdropFilter: "blur(6px)" }}
@@ -109,18 +112,25 @@ export default function Header() {
               }}
             >
               <div className="flex justify-end p-2 border-b border-gray-800">
+                <Input
+                  type="text" 
+                  placeholder="Country"
+                  className="mr-1.5"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={() => setIsOpen(false)}
-                  className="hover:bg-gray-800"
                 >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
-              {regions.map((region) => (
+              {regions.filter((item) => item.toLocaleLowerCase().includes(search)).map((region) => (
                 <DropdownMenuItem
                   key={region}
+                  onKeyDown={() => {}}
                   className="cursor-pointer flex justify-between items-center hover:bg-gray-800 text-white"
                   onClick={() => handleRegionSelect(region)}
                 >
