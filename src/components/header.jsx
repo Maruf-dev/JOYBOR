@@ -1,56 +1,19 @@
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
-import { ChevronDown, X, Check } from 'lucide-react'
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 import ThemeChanger from "./themeChanger"
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 
 export default function Header() {
   const [header, setHeader] = useState(false)
   const [headerColor, setHeaderColor] = useState("transparent")
   const [headerText, setHeaderText] = useState("white")
-  const [selectedRegion, setSelectedRegion] = useState("Toshkent shahar")
-  const [isOpen, setIsOpen] = useState(false);
-  const [search, setSearch] = useState('')
-
-  const regions = [
-    "Toshkent shahri",
-    "Toshkent viloyati",
-    "Buxoro",
-    "Samarqand",
-    "Navoi",
-    "Jizzax",
-    "Sirdaryo",
-    "Xorazm",
-    "Qoraqalpog'iston",
-    "Andijon",
-    "Farg'ona",
-    "Namangan"
-  ]
-
+ 
   const handleHeader = () => {
     setHeader(!header)
   }
 
   const handleMobileHeader = () => {
     setHeader(false)
-  }
-
-  const handleRegionSelect = (region) => {
-    setSelectedRegion(region)
-  }
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen)
   }
 
   useEffect(() => {
@@ -67,8 +30,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleColorChange)
   }, [])
 
-  console.log(search)
-
   return (
     <div
       style={{ background: `${headerColor}`, backdropFilter: "blur(6px)" }}
@@ -84,61 +45,6 @@ export default function Header() {
               JoyBor
             </h1>
           </Link>
-
-          {/* Region Selector */}
-          <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-            <DropdownMenuTrigger asChild>
-              <div className="min-w-[179px] ml-4">
-              <Button
-                variant="ghost"
-                className="flex items-center gap-2 px-4 py-0 text-sm font-medium"
-                style={{ color: `${headerText}` }}
-                onClick={toggleDropdown}
-              >
-                {selectedRegion}
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className="w-56 max-h-[400px] overflow-y-auto bg-white z-50"
-              style={{
-                position: 'relative',
-                zIndex: 9999,
-                backgroundColor: '#000000',
-                color: '#ffffff',
-                border: '1px solid rgba(255, 255, 255, 0.1)'
-              }}
-            >
-              <div className="flex justify-end p-2 border-b border-gray-800">
-                <Input
-                  type="text" 
-                  placeholder="Country"
-                  className="mr-1.5"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-              {regions.filter((item) => item.toLocaleLowerCase().includes(search)).map((region) => (
-                <DropdownMenuItem
-                  key={region}
-                  onKeyDown={() => {}}
-                  className="cursor-pointer flex justify-between items-center hover:bg-gray-800 text-white"
-                  onClick={() => handleRegionSelect(region)}
-                >
-                  {region}
-                  {selectedRegion === region && <Check className="h-4 w-4" />}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
 
         {/* Rest of your existing header code remains the same */}
