@@ -1,6 +1,3 @@
-'use client'
-
-import Image from "next/image"
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
 import { ChevronDown, X, Check } from 'lucide-react'
@@ -21,7 +18,7 @@ export default function Header() {
   const [header, setHeader] = useState(false)
   const [headerColor, setHeaderColor] = useState("transparent")
   const [headerText, setHeaderText] = useState("white")
-  const [selectedRegion, setSelectedRegion] = useState("Toshkent sh")
+  const [selectedRegion, setSelectedRegion] = useState("Toshkent shahar")
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState('')
 
@@ -91,15 +88,17 @@ export default function Header() {
           {/* Region Selector */}
           <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
             <DropdownMenuTrigger asChild>
+              <div className="min-w-[179px] ml-4">
               <Button
                 variant="ghost"
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium ml-4"
+                className="flex items-center gap-2 px-4 py-0 text-sm font-medium"
                 style={{ color: `${headerText}` }}
                 onClick={toggleDropdown}
               >
                 {selectedRegion}
                 <ChevronDown className="h-4 w-4" />
               </Button>
+              </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent
               className="w-56 max-h-[400px] overflow-y-auto bg-white z-50"
