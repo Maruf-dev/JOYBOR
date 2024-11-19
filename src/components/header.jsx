@@ -1,6 +1,6 @@
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai/index.js"
 import ThemeChanger from "./themeChanger"
 
 export default function Header() {

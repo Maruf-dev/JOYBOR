@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { RiMoonLine, RiSunLine } from 'react-icons/ri';
+import { RiMoonLine, RiSunLine } from 'react-icons/ri/index.js';
 import { useTheme } from 'next-themes';
 
 const ThemeChanger = () => {
